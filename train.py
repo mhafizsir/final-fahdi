@@ -33,7 +33,7 @@ def train_model():
 
 
 def ConvertH5():
-    add_model = tf.keras.models.load_model('model.h5')
+    add_model = tf.keras.models.load_model('model.h5', compile=False)
     converter = tf.lite.TFLiteConverter.from_keras_model(add_model)
     tflite_model = converter.convert()
     open("model.tflite", "wb").write(tflite_model)
